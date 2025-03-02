@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Review</title>
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i class="material-icons">theaters</i>
+        <!-- Icon added here -->
+        <a href="/" class="home-link">ReelRate</a>
+      </div>
+      <div id="search-container">
+        <input type="text" id="search" placeholder="Search movies..." />
+      </div>
+      <div id="button-container">
+        <button id="logout-btn" style="display: none">
+          <a href="/" class="home-link">Logout</a>
+        </button>
+        <a href="my-reviews.html"
+          ><button id="my-reviews-btn" style="display: none">
+            My Reviews
+          </button></a
+        >
+        <button id="login-btn">Login</button>
+        <button id="theme-toggle">🌙</button>
+      </div>
+    </nav>
+
+    <main>
+      <div id="movie-section">
+        <h2 id="latest-movies-title">Latest Movies</h2>
+        <div id="sort-container">
+          <select id="sort-options">
+            <option value="popularity.desc">Popularity (Default)</option>
+            <option value="title.asc">Name (A-Z)</option>
+            <option value="title.desc">Name (Z-A)</option>
+            <option value="vote_average.desc">
+              Rating (Highest to Lowest)
+            </option>
+            <option value="vote_average.asc">Rating (Lowest to Highest)</option>
+            <option value="release_date.desc">Newest First</option>
+            <option value="release_date.asc">Oldest First</option>
+          </select>
+        </div>
+        <div id="movie-container"></div>
+      </div>
+    </main>
+    <!-- Review Modal -->
+    <div id="review-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal-content" class="close-btn">&times;</span>
+        <img id="modal-movie-poster" src="" alt="Movie Poster" />
+        <h2 id="modal-movie-title">Movie Title</h2>
+        <p id="avg-rating">
+          Average Rating: <span id="avg-rating-value"></span>
+        </p>
+
+        <label for="review-score">Your Rating:</label>
+        <input
+          type="number"
+          id="review-score"
+          min="1"
+          max="10"
+          placeholder="Rating (1-10)"
+        />
+
+        <label for="review-text">Your Review:</label>
+        <textarea
+          id="review-text"
+          placeholder="Write your review..."
+        ></textarea>
+
+        <div class="modal-actions">
+          <button id="submit-review">Submit Review</button>
+          <button id="close-modal-actions">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>

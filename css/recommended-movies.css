@@ -1,0 +1,12 @@
+.loading {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Hide the loading text when data is loaded */
+.loaded #loading-text {
+  display: none;
+}

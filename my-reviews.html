@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Reviews</title>
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script type="module" src="js/my-reviews.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i class="material-icons">theaters</i>
+
+        <a href="/" class="home-link">ReelRate</a>
+      </div>
+      <div id="button-container">
+        <button id="back-btn">Back</button>
+        <button id="recommended-movies-btn">Generate Recommended Movies</button>
+        <button id="theme-toggle">🌙</button>
+      </div>
+    </nav>
+    <main>
+      <div id="reviews-section">
+        <h1 id="my-reviews-heading">My Reviews</h1>
+        <div id="sort-container">
+          <select id="sort-options">
+            <option value="date.desc">Newest First (Default)</option>
+            <option value="date.asc">Oldest First</option>
+            <option value="title.asc">Name (A-Z)</option>
+            <option value="title.desc">Name (Z-A)</option>
+            <option value="user_vote.desc">Rating (High to Low)</option>
+            <option value="user_vote.asc">Rating (Low to High)</option>
+          </select>
+        </div>
+        <div id="reviews-container"></div>
+      </div>
+    </main>
+    <div id="review-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal-content" class="close-btn">&times;</span>
+        <img id="modal-movie-poster" src="" alt="Movie Poster" />
+        <h2 id="modal-movie-title">Movie Title</h2>
+        <p id="avg-rating">
+          Average Rating: <span id="avg-rating-value"></span>
+        </p>
+
+        <label for="review-score">Your Rating:</label>
+        <input
+          type="number"
+          id="review-score"
+          min="1"
+          max="10"
+          placeholder="Rating (1-10)"
+        />
+
+        <label for="review-text">Your Review:</label>
+        <textarea
+          id="review-text"
+          placeholder="Write your review..."
+        ></textarea>
+
+        <div class="modal-actions">
+          <button id="submit-review">Submit Review</button>
+          <button id="close-modal-actions">Close</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

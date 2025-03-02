@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommended Movies</title>
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script type="module" src="js/recommended-movies.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i class="material-icons">theaters</i>
+        <a href="/" class="home-link">ReelRate</a>
+      </div>
+
+      <div id="button-container">
+        <button id="back-btn">Back</button>
+
+        <button id="theme-toggle">🌙</button>
+      </div>
+    </nav>
+
+    <main>
+      <div id="recommended-movie-section">
+        <h1 id="recommended-heading">Recommended Movies</h1>
+        <div id="sort-container">
+          <select id="sort-options">
+            <option value="release_date.desc">Newest First (Default)</option>
+            <option value="title.asc">Name (A-Z)</option>
+            <option value="title.desc">Name (Z-A)</option>
+            <option value="vote_average.desc">
+              Rating (Highest to Lowest)
+            </option>
+            <option value="vote_average.asc">Rating (Lowest to Highest)</option>
+            <option value="release_date.asc">Oldest to Newest</option>
+          </select>
+        </div>
+        <div id="loading-text" class="loading">
+          <h2>Generating movies...</h2>
+        </div>
+        <div id="recommended-movies-container"></div>
+      </div>
+    </main>
+
+    <script type="module" src="js/recommended-movies.js"></script>
+  </body>
+</html>
