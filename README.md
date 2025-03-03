@@ -47,7 +47,7 @@ The **Movie Review Web App** is an interactive web application that allows users
 
 1. **Clone the Repository**:  
    First, clone the repository to your local machine by running the following command:
-   - git clone https://github.com/Jaishan27/Movie-Review.git
+   - git clone https://github.com/JaishanJ/Movie-Review.git
    - cd Movie-Review
 
 2. **Install Dependencies**:  
